@@ -39,6 +39,14 @@ app.post('/Create', async (req, res) => {
 }
 )
 
+
+
+
+
+
+
+
+
 app.put('/Update/:id', async (req, res) => {
     const { id } = req.params;
     const { FirstName, LastName, Age, PhNum, Email } = req.body;
@@ -57,6 +65,8 @@ app.put('/Update/:id', async (req, res) => {
 )
 
 
+
+
 app.delete('/Delete/:id', async (req, res) =>{
     const {id} = req.params;
     try {
@@ -71,6 +81,27 @@ app.delete('/Delete/:id', async (req, res) =>{
         res.status(500).json({ error: 'Internal Server Error' });
     }
 } )
+
+
+app.get('/View/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const [rows] = await pool.promise().query('SELECT * FROM curd WHERE id =?', [id]);
+        res.json(rows);
+    } catch (error) {
+        console.error('Error executing query:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+    
+});
+
+
+
+
+
+
+
+
 
 
 
