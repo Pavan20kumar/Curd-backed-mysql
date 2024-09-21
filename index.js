@@ -7,10 +7,10 @@ app.use(cors());
 app.use(express.json());
 
 const pool = mysql.createPool({
-    host: 'sql12.freesqldatabase.com',
-    user: 'sql12730521',
-    password: 'FAAMeepGU9',
-    database: 'sql12730521',
+    host: 'database-2.c36uq00ykdig.eu-north-1.rds.amazonaws.com',
+    user: 'admin',
+    password: 'Pavan903222',
+    database: 'user',
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0
